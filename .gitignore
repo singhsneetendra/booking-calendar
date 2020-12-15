@@ -1,0 +1,17 @@
+# Add any directories, files, or patterns you don't want to be tracked by version control
+**/secana-docker/data/
+**/secana-docker/*/etc.secana/environment.d/
+secana-docker/*/etc.secana/secana.conf
+**/secana-docker/*/release/secana-application/
+configs/vimwiki
+*~
+*.swp
+.#*
+*.tdy
+.idea
+*.iml
+.classpath
+.metadata
+.project
+.settings
+*.bak
