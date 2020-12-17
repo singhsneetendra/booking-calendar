@@ -1,0 +1,22 @@
+version: '3.3'
+
+services:
+    node-app:
+        build: .
+        restart: always
+        depends_on:
+            - db
+        environment:
+          - DBHOST=db
+          - MYSQL_USER=cal
+          - MYSQL_PASSWORD=cal
+          - MYSQL_DATABASE=booking_cal
+        volumes: 
+          - ./scripts/start-app.sh:/tmp/start-app.sh
+          - ./scripts/schema-create.sql:/tmp/schema-create.sql
+        ports:
+            - 3000:3000
+        entrypoint: bash -c "/tmp/start-app.sh 2>&1"
+    db:
+        build: ./mariaDB
+        restart: always
